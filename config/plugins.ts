@@ -1,11 +1,4 @@
 export default ({ env }) => ({
-
-  host: env('HOST', '0.0.0.0'),
-  port: env('PORT'),
-  app: {
-    keys: env('APP_KEYS'),
-  },
-
   // ...
   email: {
     config: {
