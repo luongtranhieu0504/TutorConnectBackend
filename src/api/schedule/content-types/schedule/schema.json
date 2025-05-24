@@ -41,9 +41,6 @@
       "type": "enumeration",
       "enum": ["pending", "cancelled", "completed"],
       "default": "pending"
-    },
-    "created_at": {
-      "type": "datetime"
     }
   } 
 }
