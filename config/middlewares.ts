@@ -8,6 +8,10 @@ export default [
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
+  {
+    name: 'global::response-format',
+    resolve: './src/middlewares/response-format',
+  },
   'strapi::public',
 ];
 
