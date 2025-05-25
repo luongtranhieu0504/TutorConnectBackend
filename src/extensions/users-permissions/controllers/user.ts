@@ -3,12 +3,12 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('plugin::users-permissions.user', ({ strapi }) => ({
   async update(ctx) {
     const userId = ctx.params.id;
-    const { role_type, ...rest } = ctx.request.body;
+    const { type_role, ...rest } = ctx.request.body;
 
-    if (role_type && ['student', 'tutor'].includes(role_type)) {
+    if (type_role && ['student', 'tutor'].includes(type_role)) {
       // Lấy role tương ứng
       const role = await strapi.db.query('plugin::users-permissions.role').findOne({
-        where: { name: role_type }
+        where: { name: type_role }
       });
 
       if (!role) return ctx.badRequest('Invalid role type');
