@@ -5,6 +5,8 @@ module.exports = createCoreController('plugin::users-permissions.user', ({ strap
     const userId = ctx.params.id;
     const { type_role, ...rest } = ctx.request.body;
 
+    let updateData = { ...rest };
+
     if (type_role && ['Student', 'Tutor'].includes(type_role)) {
       // Lấy role tương ứng
       const role = await strapi.db.query('plugin::users-permissions.role').findOne({
@@ -13,12 +15,13 @@ module.exports = createCoreController('plugin::users-permissions.user', ({ strap
 
       if (!role) return ctx.badRequest('Invalid role type');
 
-      // Gán lại role ID
-      rest.role = role.id;
+      // Gán lại role ID và type_role
+      updateData.role = role.id;
+      updateData.type_role = type_role;
     }
 
     const updatedUser = await strapi.entityService.update('plugin::users-permissions.user', userId, {
-      data: rest,
+      data: updateData,
     });
 
     return { data: updatedUser };

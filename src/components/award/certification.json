@@ -10,7 +10,7 @@
       "type": "string"
     },
     "file": {
-      "type": "media",
+      "type": "string",
       "multiple": false
     },
     "issuedAt": {

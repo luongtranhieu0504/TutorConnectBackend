@@ -79,15 +79,8 @@
       "maxLength": 10
     },
     "photoUrl": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "type": "string",
+      "required": false
     },
     "bio": {
       "type": "blocks"

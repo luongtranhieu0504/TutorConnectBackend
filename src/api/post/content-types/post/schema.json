@@ -14,8 +14,7 @@
       "type": "richtext"
     },
     "imageUrls": {
-      "type": "media",
-      "multiple": true,
+      "type": "string",
       "required": false
     },
     "author": {
