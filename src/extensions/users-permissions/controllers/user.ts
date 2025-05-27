@@ -5,7 +5,7 @@ module.exports = createCoreController('plugin::users-permissions.user', ({ strap
     const userId = ctx.params.id;
     const { type_role, ...rest } = ctx.request.body;
 
-    if (type_role && ['student', 'tutor'].includes(type_role)) {
+    if (type_role && ['Student', 'Tutor'].includes(type_role)) {
       // Lấy role tương ứng
       const role = await strapi.db.query('plugin::users-permissions.role').findOne({
         where: { name: type_role }
