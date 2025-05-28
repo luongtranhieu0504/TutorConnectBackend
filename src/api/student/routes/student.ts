@@ -12,9 +12,6 @@ module.exports = {
       method: 'GET',
       path: '/students/me',
       handler: 'student.me',
-      config: {
-        auth: true,
-      },
     }
   ]
 }
